@@ -1,0 +1,14 @@
+
+/*layout es id del container principal*/
+#layout{
+    background-color: #27051d;/*color oscuro para el back*/
+    color: whitesmoke;
+    font-family: 'Comfortaa', cursive;
+    position: relative;
+    display: inline-block;
+    left: auto;
+    float: none;
+    vertical-align: middle;
+    width: 100vw;
+    min-height: 100vh;
+  }
