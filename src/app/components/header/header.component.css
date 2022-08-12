@@ -1,0 +1,29 @@
+.container {
+    padding:5px;
+    background-color: #DE88EE;
+    height: fit-content;
+    -ms-flex-align: center;
+}
+
+.logoAP{
+    height: 60px;
+}
+.textredes{
+    font-size: 10px;
+    font-weight: bold;
+    color: whitesmoke;
+    font-family: 'Comfortaa', cursive;
+}
+
+.imgredes{
+    height: 30px;
+    padding: 5px;
+    margin: 10px;
+    background-color: white;
+    border: 5px;
+    border-radius: 40px;
+}
+.cover-container {
+    max-width: 42em;
+  }
+  
