@@ -1,34 +1,74 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
-
-
 /*colores
-#900C3F
-#581845
-#797D7F
-#D2B4DE
-#DE88EE
+#27051d color del layout
+#900C3F   rgba(144, 12, 63, .5) //fucsia
+#581845   rgba(88, 24, 69, .5)  //violeta
+#797D7F   rgba(121, 125, 127, .5)  //gris
+#D2B4DE   rgba(210, 180, 222, .5)  //lila palido
+#DE88EE   rgba(222, 136, 238, .5)  //lila
+#DD6493   rgba(221, 100, 147)  //rosa
 */
-/*
-/*
- * Globals
- */
-
- body {
-    text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
-    box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
-  }
-  
-  .cover-container {
-    max-width: 42em;
-  }
-/* Custom default button */
-.btn-secondary,
-.btn-secondary:hover,
-.btn-secondary:focus {
-  color: #900C3F;
-  text-shadow: none; /* Prevent inheritance from `body` */
+/*Button style*/
+.btn-primary{
+  background-color: #581845;
+  color:#DE88EE;
+  border-color: #DE88EE;
 }
-
-
-
-  
+.btn-primary:hover,.btn-primary:active{
+  background-color: #DE88EE;
+  color:#581845;
+  font-weight: bold;
+  border-color: #900C3F;
+}
+.btn-secondary{
+  color: #581845;
+  background-color: #DE88EE;
+}
+.btn-secondary:hover,.btn-secondary:active{
+  background-color: #DD6493;
+  color:#900C3F;
+  font-weight: bold;
+  border-color: #900C3F;
+}
+/*Text style*/
+.center{
+  text-align: center;
+}
+.title{
+  font-size: 25px;
+  color: rgba(222, 136, 238);
+}
+.subtitle{
+  font-size: 20px;
+  color:rgb(192, 180, 192); 
+}
+.text{
+  font-size: 15px;
+  color:rgb(192, 180, 192); 
+}
+/*Container style*/
+.container{
+  padding-top: 2vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+.box{ 
+  box-shadow: inset 0 0 5rem rgba(144, 12, 63, .8);
+  padding:15px;
+  margin-bottom: 10px;
+  text-align: center; 
+}
+/*Scrollbar style*/
+::-webkit-scrollbar {
+  width: 1vw;
+}
+::-webkit-scrollbar-track {
+  background: #DD6493;
+}
+::-webkit-scrollbar-thumb {
+  background: #900C3F;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #581845;
+}

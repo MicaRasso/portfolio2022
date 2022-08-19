@@ -1,22 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { NgCircleProgressModule } from 'ng-circle-progress';
+ 
 import { HeaderComponent } from './components/header/header.component';
 import { AboutmeComponent } from './components/aboutme/aboutme.component';
+import { LoginComponent } from './components/login/login.component';
 import { AcademicComponent } from './components/academic/academic.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ProyectComponent } from './components/proyect/proyect.component';
-import { AcademiccardComponent } from './components/academic/academiccard/academiccard.component';
-import { SkillcardComponent } from './components/skills/skillcard/skillcard.component';
-import { ProyectcardComponent } from './components/proyect/proyectcard/proyectcard.component';
-import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { ExpcardComponent } from './components/experience/expcard/expcard.component';
 import { Page404Component } from './components/page404/page404.component';
+import { LoginformComponent } from './components/login/loginform/loginform.component';
+import { RegisterformComponent } from './components/login/registerform/registerform.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,18 +30,28 @@ import { Page404Component } from './components/page404/page404.component';
     AcademicComponent,
     SkillsComponent,
     ProyectComponent,
-    AcademiccardComponent,
-    SkillcardComponent,
-    ProyectcardComponent,
-    NavComponent,
     FooterComponent,
     ExperienceComponent,
     ExpcardComponent,
+    LoginComponent,
     Page404Component,
+    LoginformComponent,
+    RegisterformComponent,
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule, 
+    ReactiveFormsModule,
+    NgCircleProgressModule.forRoot({
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

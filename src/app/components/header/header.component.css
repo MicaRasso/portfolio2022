@@ -1,12 +1,5 @@
-.container {
-    padding:5px;
-    background-color: #DE88EE;
-    height: fit-content;
-    -ms-flex-align: center;
-}
-
 .logoAP{
-    height: 60px;
+    height: 10vh;
 }
 .textredes{
     font-size: 10px;
@@ -16,14 +9,20 @@
 }
 
 .imgredes{
-    height: 30px;
+    height: 6vh;
+    width: auto;
     padding: 5px;
     margin: 10px;
-    background-color: white;
-    border: 5px;
+    background-color: rgba(221, 100, 147) ;
+    border-style: none;
     border-radius: 40px;
 }
+.imgredes:hover{
+    background-color: rgba(222, 136, 238, .5);
+}
 .cover-container {
-    max-width: 42em;
+    max-width: 60em;
   }
   
+
+    
