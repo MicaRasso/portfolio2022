@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Params } from '@angular/router';
+import { proyect } from 'src/app/model/proyect.model';
+import { ProyectService } from 'src/app/service/proyect.service';
 
 @Component({
   selector: 'app-proyect',
@@ -8,14 +9,14 @@ import { ActivatedRoute,Params } from '@angular/router';
 })
 export class ProyectComponent implements OnInit {
 
-  constructor(private rutaActiva:ActivatedRoute) { 
-    this.rutaActiva.params.subscribe((params:Params)=>{
-      console.log(params['id']);
-      //  const id=params.id.toString();
+  public proyect:Array<proyect>=[];
 
-    })
-  }
+  constructor(public proyectService:ProyectService) {}
 
   ngOnInit(): void {
+    this.proyectService.getProyects().subscribe(data=>{
+      this.proyect.push(data);
+      console.log("PROYECT", this.proyect)
+    })
   }
 }
