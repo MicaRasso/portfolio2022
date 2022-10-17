@@ -36,15 +36,15 @@ public class ExperienceService {
     public Optional<ExperienceModel> getOne(long id){
         return experienceRepository.findById(id);
     }
-    
-    public Optional<ExperienceModel> findByNombre(String nameE){
-        return experienceRepository.findByNameE(nameE);
+/*    
+    public Optional<ExperienceModel> findByNombre(String name){
+        return experienceRepository.findByNameE(name);
     }
     
-    public boolean existsByNombre(String nameE){
-        return experienceRepository.existsByNameE(nameE);
+    public boolean existsByNombre(String name){
+        return experienceRepository.existsByNameE(name);
     }
-    
+ */ 
     public boolean existById(Long id){
         return experienceRepository.existsById(id);
     }

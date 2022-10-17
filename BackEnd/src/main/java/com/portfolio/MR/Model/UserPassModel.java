@@ -14,7 +14,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name= "user" )
-public class UserModel implements Serializable {
+public class UserPassModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true,nullable = false)
@@ -22,13 +22,13 @@ public class UserModel implements Serializable {
     private String mail;
     private String password;
 
-    public UserModel(Long id, String mail, String password) {
+    public UserPassModel(Long id, String mail, String password) {
         this.id = id;
         this.mail = mail;
         this.password = password;
     }
 
-    public UserModel() {
+    public UserPassModel() {
     }
 
     public long getId() {

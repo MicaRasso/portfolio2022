@@ -14,9 +14,20 @@ export class ProyectComponent implements OnInit {
   constructor(public proyectService:ProyectService) {}
 
   ngOnInit(): void {
+    
     this.proyectService.getProyects().subscribe(data=>{
-      this.proyect.push(data);
-      console.log("PROYECT", this.proyect)
+    this.proyect.push(data);
+    console.log("PROYECTO", this.proyect)
+  })
+
+    
+   /*
+    let aux =this.proyectService.getProyects()
+
+    aux.forEach(el=>{
+      this.proyect.push(el);
+
     })
+    */
   }
 }

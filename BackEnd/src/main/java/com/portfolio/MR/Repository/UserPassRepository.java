@@ -5,7 +5,7 @@
  */
 package com.portfolio.MR.Repository;
 
-import com.portfolio.MR.Model.UserModel;
+import com.portfolio.MR.Model.UserPassModel;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +14,6 @@ import org.springframework.stereotype.Repository;
  * @author micae
  */
 @Repository
-public interface UserRepository extends CrudRepository<UserModel, Long>{
+public interface UserPassRepository extends CrudRepository<UserPassModel, Long>{
     
 }

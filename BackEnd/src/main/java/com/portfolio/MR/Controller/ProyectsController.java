@@ -3,6 +3,7 @@ package com.portfolio.MR.Controller;
 import com.portfolio.MR.Model.ProyectModel;
 import com.portfolio.MR.Service.ProyectsService;
 import java.util.ArrayList;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,6 +23,11 @@ public class ProyectsController {
     @GetMapping("/proyects/get")
     public ArrayList<ProyectModel> getProyects(){
         return proyectsService.getProyects();
+    }
+    
+    @GetMapping("/proyects/get/{id}")
+    public Optional<ProyectModel> getProyects1(@PathVariable Long id){
+        return proyectsService.getProyects1(id);
     }
     
     @PostMapping("/proyects/set")
