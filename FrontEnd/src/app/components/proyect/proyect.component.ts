@@ -9,25 +9,18 @@ import { ProyectService } from 'src/app/service/proyect.service';
 })
 export class ProyectComponent implements OnInit {
 
-  public proyect:Array<proyect>=[];
+  proy:proyect[]=[];
 
   constructor(public proyectService:ProyectService) {}
 
   ngOnInit(): void {
     
-    this.proyectService.getProyects().subscribe(data=>{
-    this.proyect.push(data);
-    console.log("PROYECTO", this.proyect)
-  })
+    this.createProy();
+  }
 
-    
-   /*
-    let aux =this.proyectService.getProyects()
-
-    aux.forEach(el=>{
-      this.proyect.push(el);
-
+  createProy():void{
+    this.proyectService.list().subscribe(data=> {
+      this.proy=data;
     })
-    */
   }
 }

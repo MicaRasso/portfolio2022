@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository 
 public interface ExperienceRepository extends JpaRepository<ExperienceModel, Long>{
-    //public Optional<ExperienceModel> findByNameE(String name);
-    //public boolean existsByNameE(String name);
+    public Optional<ExperienceModel> findByTitle(String title);
+    public boolean existsByTitle(String title);
 }
 

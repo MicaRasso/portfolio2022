@@ -1,21 +1,9 @@
 <div class="container">
     <h3 class="title">Experiencia laboral</h3>
-    <div class="box col-xs-12 col-sm-4 col-md-4 col-lg-4" *ngFor="let elem of experience">
-        <h4 class="subtitle">1 {{elem.title}}</h4>
-        <h5 class="text">2 ({{elem.iDate}} - {{elem.fDate}})</h5>
-        <p class="text">3 {{elem.id_company}}</p>
-        <p class="text">4 {{elem.description}}</p> 
+    <div class="box col-xs-12 col-sm-4 col-md-4 col-lg-4" *ngFor="let elem of exp">
+        <h4 class="subtitle">{{elem.title}}</h4>
+        <h5 class="text">({{elem.iDate}} - {{elem.fDate}})</h5>
+        <p class="text">{{elem.id_company}}</p>
+        <p class="text">{{elem.description}}</p> 
     </div>
 </div>
-
-
-<!--
-    
-        <li>
-            <h4>Ayudante estudiante</h4>
-            <h5>(2021-actualidad)</h5> 
-        </li>
-        <p>Universidad Nacional de Mar del Plata</p>
-        <p>Explicación de conceptos y aplicación práctica de los mismos en torno al plan de estudios de la catedra</p>
-    </ul>
--->

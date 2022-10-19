@@ -33,8 +33,7 @@ public class ProyectModel implements Serializable {
     public ProyectModel() {
     }
 
-    public ProyectModel(Long id, String title, Date fDate, String description, String link) {
-        this.id = id;
+    public ProyectModel(String title, Date fDate, String description, String link) {
         this.title = title;
         this.fDate = fDate;
         this.description = description;

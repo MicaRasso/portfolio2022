@@ -20,5 +20,10 @@ public class UserPassService {
     public UserPassModel saveUser(UserPassModel user){
         return userRepository.save(user);
     }
+
+    public String getPassword(int id) {
+        return userRepository.getPasswordById(id);
+    }
+
     
 }

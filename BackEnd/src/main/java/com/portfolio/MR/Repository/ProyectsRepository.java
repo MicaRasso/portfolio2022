@@ -6,6 +6,7 @@
 package com.portfolio.MR.Repository;
 
 import com.portfolio.MR.Model.ProyectModel;
+import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,5 +16,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface ProyectsRepository extends CrudRepository<ProyectModel, Long>{
+    public Optional<ProyectModel> findByTitle(String title);
+    public boolean existsByTitle(String title);
     
 }

@@ -1,3 +1,4 @@
+import { createMayBeForwardRefExpression } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { experience } from 'src/app/model/experience.model';
 import { ExperienceService } from 'src/app/service/experience.service';
@@ -9,15 +10,22 @@ import { ExperienceService } from 'src/app/service/experience.service';
 })
 export class ExperienceComponent implements OnInit {
 
-  public experience:Array<experience>=[];
+  exp:experience[]=[];
 
-  constructor(public experienceService:ExperienceService) { }
+  constructor(private experienceService:ExperienceService) { }
+
+  isLogged=true;
 
   ngOnInit(): void {
-    this.experienceService.getExperience().subscribe(data=>{
-      this.experience.push(data);
-      console.log("EXPERIENCIA", this.experience)
+    this.createExp();
+
+  }
+
+  createExp():void{
+    this.experienceService.list().subscribe(data=> {
+      this.exp=data;
     })
+
   }
 
 }

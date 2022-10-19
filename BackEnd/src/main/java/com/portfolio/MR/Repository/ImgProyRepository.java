@@ -5,18 +5,11 @@
  */
 package com.portfolio.MR.Repository;
 
-import com.portfolio.MR.Model.SkillsModel;
-import java.util.Optional;
+import com.portfolio.MR.Model.ImgProyModel;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author micae
- */
 @Repository
-public interface SkillsRepository extends CrudRepository<SkillsModel, Long>{
-    public Optional<SkillsModel> findByName(String name);
-    public boolean existsByName(String name);
+public interface ImgProyRepository  extends CrudRepository<ImgProyModel, Long> {
     
 }

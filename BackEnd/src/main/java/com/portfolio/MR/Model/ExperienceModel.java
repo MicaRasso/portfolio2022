@@ -29,8 +29,7 @@ public class ExperienceModel implements Serializable {
     public ExperienceModel() {
     }
 
-    public ExperienceModel(Long id, String title, Date iDate, Date fDate, String description, Long id_company) {
-        this.id = id;
+    public ExperienceModel(String title, Date iDate, Date fDate, String description, Long id_company) {
         this.title = title;
         this.iDate = iDate;
         this.fDate = fDate;

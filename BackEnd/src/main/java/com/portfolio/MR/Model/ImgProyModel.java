@@ -29,8 +29,7 @@ public class ImgProyModel {
     public ImgProyModel() {
     }
 
-    public ImgProyModel(Long id, ProyectModel id_proy) {
-        this.id = id;
+    public ImgProyModel(ProyectModel id_proy) {
         this.id_proy = id_proy;
     }
 

@@ -1,8 +1,8 @@
 <div class="container">
     <h3 class="title">Formación académica</h3>
     <div class="box col-xs-12 col-sm-4 col-md-4 col-lg-4" *ngFor="let item of academic">
-        <h4 class="subtitle">1 titulo {{item.title}}</h4>
-        <h5 class="text">2 ({{item.iDate}} - {{item.fDate}})</h5>
-        <p class="text">3 instituto {{item.id_institute}}</p>
+        <h4 class="subtitle">{{item.title}}</h4>
+        <h5 class="text">({{item.iDate}} - {{item.fDate}})</h5>
+        <p class="text">{{item.id_institute}}</p>
     </div>
 </div>

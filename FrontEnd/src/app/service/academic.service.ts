@@ -11,7 +11,29 @@ export class AcademicService {
 
   constructor(private http:HttpClient) { }
 
-  public getAcademic():Observable<academic>{
-    return this.http.get<academic>(this.URL+'get')
+  public list():Observable<academic[]>{
+    return this.http.get<academic[]>(this.URL+'list')
   }
+//para obtener datos de una exp particular
+public detail(id:number):Observable<academic[]>{
+  return this.http.get<academic[]>(this.URL + `detail/${id}`);
+}
+
+//guardar
+public save(exp:academic):Observable<any>{
+  return this.http.post<any>(this.URL + `create`,exp);
+}
+
+//actualizar
+public update(id:number,exp:academic):Observable<any>{
+  return this.http.put<any>(this.URL + `update/${id}` ,exp)
+}
+
+//borrar
+public delete(id:number):Observable<any>{
+  return this.http.delete<any>(this.URL + `delete/${id}`)
+}
+
+
+
 }

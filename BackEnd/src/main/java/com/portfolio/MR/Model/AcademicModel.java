@@ -37,8 +37,7 @@ public class AcademicModel implements Serializable {
     public AcademicModel() {
     }
 
-    public AcademicModel(Long id, String title, Date iDate, Date fDate, String description, Long id_institute) {
-        this.id = id;
+    public AcademicModel(String title, Date iDate, Date fDate, String description, Long id_institute) {
         this.title = title;
         this.iDate = iDate;
         this.fDate = fDate;

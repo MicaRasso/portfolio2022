@@ -6,6 +6,7 @@
 package com.portfolio.MR.Repository;
 
 import com.portfolio.MR.Model.AcademicModel;
+import java.util.Optional;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,5 +16,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface AcademicRepository extends CrudRepository<AcademicModel, Long>{
+    public Optional<AcademicModel> findByTitle(String title);
+    public boolean existsByTitle(String title);
     
 }

@@ -29,8 +29,7 @@ public class ImagesModel implements Serializable {
     public ImagesModel() {
     }
 
-    public ImagesModel(Long id, String url, String alt) {
-        this.id = id;
+    public ImagesModel(String url, String alt) {
         this.url = url;
         this.alt = alt;
     }

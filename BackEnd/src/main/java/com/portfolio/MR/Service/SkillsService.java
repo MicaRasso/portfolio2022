@@ -7,30 +7,36 @@ package com.portfolio.MR.Service;
 
 import com.portfolio.MR.Model.SkillsModel;
 import com.portfolio.MR.Repository.SkillsRepository;
-import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- *
- * @author micae
- */
+
 @Service
 @Transactional
 public class SkillsService {
     @Autowired
     SkillsRepository skillsRepository;
     
-    public ArrayList<SkillsModel> getSkills(){
-        return (ArrayList<SkillsModel>) skillsRepository.findAll();
+     public List<SkillsModel> list(){
+        return (List<SkillsModel>) skillsRepository.findAll();
     }
 
-    public SkillsModel saveSkills(SkillsModel skills){
+    public Optional<SkillsModel> getOne(long id){
+        return skillsRepository.findById(id);
+    }
+    
+    public SkillsModel save(SkillsModel skills){
         return skillsRepository.save(skills);
     }
     
-    public void deleteSkills(Long id){
+    public void delete(Long id){
         skillsRepository.deleteById(id);
+    }
+
+    public boolean existById(Long id){
+        return skillsRepository.existsById(id);
     }
 }

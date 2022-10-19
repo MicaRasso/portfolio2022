@@ -26,8 +26,7 @@ public class SkillsModel implements Serializable {
     public SkillsModel() {
     }
 
-    public SkillsModel(Long id, String name, Number percentage) {
-        this.id = id;
+    public SkillsModel(String name, Number percentage) {
         this.name = name;
         this.percentage = percentage;
     }

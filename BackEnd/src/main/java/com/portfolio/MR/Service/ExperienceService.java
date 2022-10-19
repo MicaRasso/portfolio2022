@@ -16,18 +16,11 @@ public class ExperienceService {
     @Autowired
     ExperienceRepository experienceRepository;
     
+    
     public ArrayList<ExperienceModel> getExperience(){
         return (ArrayList<ExperienceModel>) experienceRepository.findAll();
     }
 
-    public ExperienceModel saveExperience(ExperienceModel experience){
-        return experienceRepository.save(experience);
-    }
-
-    public void deleteExperience(Long id){
-        experienceRepository.deleteById(id);
-    }
-    
     //NUEVOS!
     public List<ExperienceModel> list(){
         return (List<ExperienceModel>) experienceRepository.findAll();
@@ -36,20 +29,11 @@ public class ExperienceService {
     public Optional<ExperienceModel> getOne(long id){
         return experienceRepository.findById(id);
     }
-/*    
-    public Optional<ExperienceModel> findByNombre(String name){
-        return experienceRepository.findByNameE(name);
-    }
     
-    public boolean existsByNombre(String name){
-        return experienceRepository.existsByNameE(name);
+    public Optional<ExperienceModel> getByTitle(String title){
+        return experienceRepository.findByTitle(title);
     }
- */ 
-    public boolean existById(Long id){
-        return experienceRepository.existsById(id);
-    }
-    
-    //copiados de arriba con el nombre mas corto
+
     public ExperienceModel save(ExperienceModel experience){
         return experienceRepository.save(experience);
     }
@@ -57,5 +41,14 @@ public class ExperienceService {
     public void delete(Long id){
         experienceRepository.deleteById(id);
     }
+
+    public boolean existsByTitle(String title){
+        return experienceRepository.existsByTitle(title);
+    } 
+
+    public boolean existById(Long id){
+        return experienceRepository.existsById(id);
+    }
+    
 }
 

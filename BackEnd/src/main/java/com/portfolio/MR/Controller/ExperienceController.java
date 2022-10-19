@@ -1,6 +1,7 @@
 
 package com.portfolio.MR.Controller;
 
+import com.portfolio.MR.DTO.ExperienceDTO;
 import com.portfolio.MR.Model.ExperienceModel;
 import com.portfolio.MR.Service.ExperienceService;
 import java.util.ArrayList;
@@ -31,12 +32,12 @@ public class ExperienceController {
     
     @PostMapping("/set")
     public ExperienceModel saveExperience(@RequestBody ExperienceModel experience){
-        return this.experienceService.saveExperience(experience);
+        return this.experienceService.save(experience);
     }
     
     @DeleteMapping("/delete/{id}")
     public void deleteExperience(@PathVariable Long id){
-        this.experienceService.deleteExperience(id);
+        this.experienceService.delete(id);
     }   
     
     @GetMapping("/list")
@@ -45,5 +46,29 @@ public class ExperienceController {
         list = experienceService.list();
         return new ResponseEntity(list,HttpStatus.OK);
     }
-    
+/* POR AHORA USO EL saveExperience    
+    public void create (@RequestBody ExperienceDTO expDTO){
+        if(expDTO.getTitle()!=null && expDTO.getiDate()!=null && expDTO.getDescription()!=null){
+            ExperienceModel exp= new ExperienceModel(expDTO.getTitle(),expDTO.getiDate(),expDTO.getfDate(),expDTO.getDescription(),expDTO.getId_company()); 
+            experienceService.save(exp);
+        }
+    }
+*/            
+            
+    @PostMapping("/update/{id}")     
+    public void update(@PathVariable("id") Long id,@RequestBody ExperienceDTO expDTO){
+        if(experienceService.existById(id)){
+            ExperienceModel exp= new ExperienceModel();
+            if(expDTO.getTitle()!=null)
+                exp.setTitle(expDTO.getTitle());
+            if(expDTO.getDescription()!=null)
+                exp.setDescription(expDTO.getDescription());
+            if(expDTO.getiDate()!=null)
+                exp.setiDate(expDTO.getiDate());
+            if(expDTO.getfDate()!=null)
+                exp.setfDate(expDTO.getfDate());
+            if(expDTO.getId_company()!=null)
+                exp.setId_company(expDTO.getId_company());
+        }
+    }
 }

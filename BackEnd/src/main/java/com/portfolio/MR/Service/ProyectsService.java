@@ -2,7 +2,7 @@ package com.portfolio.MR.Service;
 
 import com.portfolio.MR.Model.ProyectModel;
 import com.portfolio.MR.Repository.ProyectsRepository;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,19 +14,31 @@ public class ProyectsService {
     @Autowired
     ProyectsRepository proyectsRepository;
     
-    public ArrayList<ProyectModel> getProyects(){
-        return (ArrayList<ProyectModel>) proyectsRepository.findAll();
+    public List<ProyectModel> list(){
+        return (List<ProyectModel>) proyectsRepository.findAll();
     }
-  
-    public Optional<ProyectModel> getProyects1(Long id){
-        return  proyectsRepository.findById(id);
+
+    public Optional<ProyectModel> getOne(long id){
+        return proyectsRepository.findById(id);
     }
     
-    public ProyectModel saveProyects(ProyectModel proyects){
+    public Optional<ProyectModel> getByTitle(String title){
+        return proyectsRepository.findByTitle(title);
+    }
+    
+    public ProyectModel save(ProyectModel proyects){
         return proyectsRepository.save(proyects);
     }    
     
-    public void deleteProyects(Long id){
+    public void delete(Long id){
         proyectsRepository.deleteById(id);
+    }
+    
+    public boolean existsByTitle(String title){
+        return proyectsRepository.existsByTitle(title);
+    } 
+
+    public boolean existById(Long id){
+        return proyectsRepository.existsById(id);
     }
 }

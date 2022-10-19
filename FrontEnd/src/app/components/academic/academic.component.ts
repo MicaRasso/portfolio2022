@@ -13,10 +13,15 @@ export class AcademicComponent implements OnInit {
 
   constructor(public academicService:AcademicService) { }
 
+  isLogged=true;
+
   ngOnInit(): void {
-    this.academicService.getAcademic().subscribe(data=>{
-      this.academic.push(data);
-      console.log("ACADEMICA", this.academic)
+    this.createAcad();
+  }
+
+  createAcad():void{
+    this.academicService.list().subscribe(data=> {
+      this.academic=data;
     })
   }
 

@@ -11,21 +11,27 @@ export class ProyectService {
 
   constructor(private http:HttpClient) { }
 
-  public getProyects():Observable<proyect>{
-    //public getProyects():Array<any>{
-/*
-    let data
-    let aux=[]
-    let id=1
-    data=this.http.get<proyect>(this.URL+`get/${id}`)
-    while(data){
-      aux.push(data)
-      id++;
-      data=this.http.get<proyect>(this.URL+`get/${id}`)
-    }
+  public list():Observable<proyect[]>{
+    return this.http.get<proyect[]>(this.URL+'list')
+  }
 
-    return aux;
-*/
-    return this.http.get<proyect>(this.URL+'get')
+  //para obtener datos de una exp particular
+  public detail(id:number):Observable<proyect[]>{
+    return this.http.get<proyect[]>(this.URL + `detail/${id}`);
+  }
+
+  //guardar
+  public save(exp:proyect):Observable<any>{
+    return this.http.post<any>(this.URL + `create`,exp);
+  }
+
+  //actualizar
+  public update(id:number,exp:proyect):Observable<any>{
+    return this.http.put<any>(this.URL + `update/${id}` ,exp)
+  }
+  
+  //borrar
+  public delete(id:number):Observable<any>{
+    return this.http.delete<any>(this.URL + `delete/${id}`)
   }
 }
