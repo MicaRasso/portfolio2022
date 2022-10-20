@@ -1,9 +1,28 @@
 <div class="container">
-    <h3 class="title">Experiencia laboral</h3>
-    <div class="box col-xs-12 col-sm-4 col-md-4 col-lg-4" *ngFor="let elem of exp">
-        <h4 class="subtitle">{{elem.title}}</h4>
-        <h5 class="text">({{elem.iDate}} - {{elem.fDate}})</h5>
-        <p class="text">{{elem.id_company}}</p>
-        <p class="text">{{elem.description}}</p> 
+    <div class="row">
+
+        <h3 class="title col-lg-9 col-md-9 col-sm-9 col-xs-9">Experiencia laboral</h3>
+    
+        <div *ngIf="isLogged" class="editbtn col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <!--NO ESTA PROBADO-->
+            <button routerLink="" class="btn btn-edit-elim"><img src="../../../assets/images/pen.svg" alt="editar"></button>
+            <!--NO ESTA PROBADO-->
+            <button   class="btn btn-edit-elim"><img src="../../../assets/images/trash.svg" alt="eliminar"></button>
+          </div>
+
+    </div>
+
+    
+
+    <div class="row">
+        <div class="box col-xs-12 col-sm-4 col-md-4 col-lg-4" *ngFor="let elem of exp">
+            <h4 class="subtitle">{{elem.title}}</h4>
+
+            <h5 class="text" *ngIf="elem.fDate!=null">({{elem.iDate}} - {{elem.fDate}})</h5>
+            <h5 class="text" *ngIf="elem.fDate==null">({{elem.iDate}})</h5>
+            
+            <p class="text">{{elem.company}}</p>
+            <p class="text">{{elem.description}}</p> 
+        </div>
     </div>
 </div>

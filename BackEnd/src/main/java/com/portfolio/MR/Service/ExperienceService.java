@@ -26,7 +26,7 @@ public class ExperienceService {
         return (List<ExperienceModel>) experienceRepository.findAll();
     }
 
-    public Optional<ExperienceModel> getOne(long id){
+    public Optional<ExperienceModel> getOne(Long id){
         return experienceRepository.findById(id);
     }
     

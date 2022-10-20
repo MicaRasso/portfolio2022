@@ -11,6 +11,8 @@ export class ProyectComponent implements OnInit {
 
   proy:proyect[]=[];
 
+  isLogged=true
+  
   constructor(public proyectService:ProyectService) {}
 
   ngOnInit(): void {

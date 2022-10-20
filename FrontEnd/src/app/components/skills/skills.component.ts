@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { skills } from 'src/app/model/skills.model';
+import { SkillsService } from 'src/app/service/skills.service';
 
 @Component({
   selector: 'app-skills',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SkillsComponent implements OnInit {
 
-  constructor() { }
+  sk:skills[]=[];
+
+  isLogged=true 
+  
+  constructor(public skillsService:SkillsService) { }
 
   ngOnInit(): void {
+    this.createSkill();
+  }
+
+  createSkill(){
+    this.skillsService.list().subscribe(data=> {
+      this.sk=data;
+    })
   }
 
 }

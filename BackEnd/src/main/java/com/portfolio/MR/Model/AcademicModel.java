@@ -32,66 +32,60 @@ public class AcademicModel implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fDate;
     private String description;
-    private Long id_institute;
+    private String institute;
 
     public AcademicModel() {
     }
 
-    public AcademicModel(String title, Date iDate, Date fDate, String description, Long id_institute) {
+    public AcademicModel(String title, Date iDate, Date fDate, String description, String institute) {
         this.title = title;
         this.iDate = iDate;
         this.fDate = fDate;
         this.description = description;
-        this.id_institute = id_institute;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-    
-    public void setiDate(Date iDate) {
-        this.iDate = iDate;
-    }
-
-    public void setfDate(Date fDate) {
-        this.fDate = fDate;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setId_institute(Long id_institute) {
-        this.id_institute = id_institute;
-    }
-
-    public Long getId() {
-        return id;
+        this.institute = institute;
     }
 
     public String getTitle() {
         return title;
     }
-    
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public Date getiDate() {
         return iDate;
+    }
+
+    public void setiDate(Date iDate) {
+        this.iDate = iDate;
     }
 
     public Date getfDate() {
         return fDate;
     }
 
+    public void setfDate(Date fDate) {
+        this.fDate = fDate;
+    }
+
     public String getDescription() {
         return description;
     }
 
-    public Long getId_institute() {
-        return id_institute;
+    public void setDescription(String description) {
+        this.description = description;
     }
+
+    public String getInstitute() {
+        return institute;
+    }
+
+    public void setInstitute(String institute) {
+        this.institute = institute;
+    }
+
+
     
     
 }

@@ -39,4 +39,21 @@ public class ProyectsController {
     public void deleteProyects(@PathVariable Long id){
         this.proyectsService.delete(id);
     }
+    
+    @PostMapping("/update/{id}")     
+    public void update(@PathVariable("id") Long id,@RequestBody ProyectModel proyect){
+        if(proyectsService.existById(id)){
+            ProyectModel proy= new ProyectModel();
+            if(proyect.getTitle()!=null)
+                proy.setTitle(proyect.getTitle());
+            if(proyect.getDescription()!=null)
+                proy.setDescription(proyect.getDescription());
+            if(proyect.getfDate()!=null)
+                proy.setfDate(proyect.getfDate());
+            if(proyect.getLink()!=null)
+                proy.setLink(proyect.getLink());
+            if(proyect.getImg_URL()!=null)
+                proy.setImg_URL(proyect.getImg_URL());
+        }
+    }
 }

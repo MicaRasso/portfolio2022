@@ -2,16 +2,12 @@
 package com.portfolio.MR.Model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
@@ -27,17 +23,19 @@ public class ProyectModel implements Serializable {
     private Date fDate;
     private String description;
     private String link;
-    @OneToMany(mappedBy = "id_proy", cascade= CascadeType.ALL)
+    private String img_URL;
+    /*@OneToMany(mappedBy = "id_proy", cascade= CascadeType.ALL)
     private List<ImgProyModel> id_img=new ArrayList<>();
-
+*/
     public ProyectModel() {
     }
 
-    public ProyectModel(String title, Date fDate, String description, String link) {
+    public ProyectModel(String title, Date fDate, String description, String link, String img_URL) {
         this.title = title;
         this.fDate = fDate;
         this.description = description;
         this.link = link;
+        this.img_URL = img_URL;
     }
 
     public Long getId() {
@@ -80,14 +78,12 @@ public class ProyectModel implements Serializable {
         this.link = link;
     }
 
-    public List<ImgProyModel> getId_img() {
-        return id_img;
+    public String getImg_URL() {
+        return img_URL;
     }
 
-    public void setId_img(List<ImgProyModel> id_img) {
-        this.id_img = id_img;
+    public void setImg_URL(String img_URL) {
+        this.img_URL = img_URL;
     }
-    
-    
     
 }

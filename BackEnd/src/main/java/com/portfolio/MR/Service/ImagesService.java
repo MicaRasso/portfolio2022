@@ -39,5 +39,8 @@ public class ImagesService {
         return imagesRepository.findById(id);
     }
     
+    public boolean existById(Long id){
+        return imagesRepository.existsById(id);
+    }
     
 }

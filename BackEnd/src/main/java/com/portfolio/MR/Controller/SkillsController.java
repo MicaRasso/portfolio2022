@@ -30,13 +30,24 @@ public class SkillsController {
         return new ResponseEntity(list,HttpStatus.OK);
     }
     
-    @PostMapping("/skills/set")
+    @PostMapping("/set")
     public SkillsModel saveSkills(@RequestBody SkillsModel skills){
         return this.skillsService.save(skills);
     }
     
-    @DeleteMapping("/skills/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteSkills(@PathVariable Long id){
         this.skillsService.delete(id);
+    }
+    
+    @PostMapping("/update/{id}")     
+    public void update(@PathVariable("id") Long id,@RequestBody SkillsModel skills){
+        if(skillsService.existById(id)){
+            SkillsModel sk= new SkillsModel();
+            if(skills.getName()!=null)
+                sk.setName(skills.getName());
+            if(skills.getPercentage()!=null)
+                sk.setPercentage(skills.getPercentage());
+        }
     }
 }

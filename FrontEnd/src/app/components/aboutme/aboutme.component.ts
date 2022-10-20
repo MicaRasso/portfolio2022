@@ -12,6 +12,8 @@ export class AboutmeComponent implements OnInit {
   
   constructor(public aboutmeService:AboutmeService) { }
 
+  isLogged=true
+  
   ngOnInit(): void {
     this.aboutmeService.getAboutMe().subscribe(data => (
       this.aboutme=data));

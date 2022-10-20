@@ -4,14 +4,14 @@ export class experience{
     iDate:Date;
     fDate:Date;
     description:string;
-    id_company:number;
+    company:string;
 
-    constructor(title:string,iDate:Date,fDate:Date,description:string,id_company:number){
+    constructor(title:string,iDate:Date,fDate:Date,description:string,company:string){
         this.title=title;
         this.iDate=iDate;
         this.fDate=fDate;
         this.description=description;
-        this.id_company=id_company;
+        this.company=company;
      }
 
 }

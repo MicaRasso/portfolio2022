@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="skills")
@@ -20,15 +21,20 @@ public class SkillsModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true,nullable = false)
     private Long id;
+    @NotNull
     private String name;
+    @NotNull
     private Number percentage;
+    @NotNull
+    private boolean hard;
 
     public SkillsModel() {
     }
 
-    public SkillsModel(String name, Number percentage) {
+    public SkillsModel(String name, Number percentage, boolean hard) {
         this.name = name;
         this.percentage = percentage;
+        this.hard = hard;
     }
 
     public Long getId() {
@@ -53,6 +59,14 @@ public class SkillsModel implements Serializable {
 
     public void setPercentage(Number percentage) {
         this.percentage = percentage;
+    }
+
+    public boolean isHard() {
+        return hard;
+    }
+
+    public void setHard(boolean hard) {
+        this.hard = hard;
     }
     
 }

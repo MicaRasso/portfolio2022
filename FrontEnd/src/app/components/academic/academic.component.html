@@ -1,8 +1,25 @@
 <div class="container">
-    <h3 class="title">Formación académica</h3>
-    <div class="box col-xs-12 col-sm-4 col-md-4 col-lg-4" *ngFor="let item of academic">
-        <h4 class="subtitle">{{item.title}}</h4>
-        <h5 class="text">({{item.iDate}} - {{item.fDate}})</h5>
-        <p class="text">{{item.id_institute}}</p>
+    <div class="row">
+
+        <h3 class="title col-lg-9 col-md-9 col-sm-9 col-xs-9">Formación académica</h3>
+    
+        <div *ngIf="isLogged" class="editbtn col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <!--NO ESTA PROBADO-->
+            <button routerLink="" class="btn btn-edit-elim"><img src="../../../assets/images/pen.svg" alt="editar"></button>
+            <!--NO ESTA PROBADO-->
+            <button   class="btn btn-edit-elim"><img src="../../../assets/images/trash.svg" alt="eliminar"></button>
+          </div>
+
+    </div>
+    
+    <div class="row">
+        <div class="box col-xs-12 col-sm-4 col-md-4 col-lg-4" *ngFor="let item of academic">
+            <h4 class="subtitle">{{item.title}}</h4>
+        
+            <h5 class="text" *ngIf="item.fDate!=null">({{item.iDate}} - {{item.fDate}})</h5>
+            <h5 class="text" *ngIf="item.fDate==null">({{item.iDate}})</h5>
+        
+            <p class="text">{{item.institute}}</p>
+        </div>
     </div>
 </div>

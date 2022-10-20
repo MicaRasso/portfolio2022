@@ -38,4 +38,21 @@ public class AcademicController {
     public void delete(@PathVariable Long id){
         this.academicService.delete(id);
     }
+    
+    @PostMapping("/update/{id}")     
+    public void update(@PathVariable("id") Long id,@RequestBody AcademicModel academic){
+        if(academicService.existById(id)){
+            AcademicModel acad= new AcademicModel();
+            if(academic.getTitle()!=null)
+                acad.setTitle(academic.getTitle());
+            if(academic.getDescription()!=null)
+                acad.setDescription(academic.getDescription());
+            if(academic.getiDate()!=null)
+                acad.setiDate(academic.getiDate());
+            if(academic.getfDate()!=null)
+                acad.setfDate(academic.getfDate());
+            if(academic.getInstitute()!=null)
+                acad.setInstitute(academic.getInstitute());
+        }
+    }
 }

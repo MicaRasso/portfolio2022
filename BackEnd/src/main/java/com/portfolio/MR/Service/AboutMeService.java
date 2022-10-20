@@ -7,7 +7,7 @@ package com.portfolio.MR.Service;
 
 import com.portfolio.MR.Model.AboutMeModel;
 import com.portfolio.MR.Repository.AboutMeRepository;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,14 +19,19 @@ public class AboutMeService {
     @Autowired
     AboutMeRepository aboutMeRepository;
     
-    public ArrayList<AboutMeModel> getAboutMe(){
-        return (ArrayList<AboutMeModel>) aboutMeRepository.findAll();
+    public List<AboutMeModel> list(){
+        return (List<AboutMeModel>) aboutMeRepository.findAll();
     }
-    public Optional<AboutMeModel> getAboutMe1(Long id){
+    
+    public Optional<AboutMeModel> getOne(Long id){
         return aboutMeRepository.findById(id);
     }
 
-    public AboutMeModel saveAboutMe(AboutMeModel aboutMe){
+    public AboutMeModel save(AboutMeModel aboutMe){
         return aboutMeRepository.save(aboutMe);
+    }
+    
+    public void delete(Long id){
+        aboutMeRepository.deleteById(id);
     }
 }
