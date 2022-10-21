@@ -3,7 +3,6 @@ package com.portfolio.MR.Service;
 
 import com.portfolio.MR.Model.ExperienceModel;
 import com.portfolio.MR.Repository.ExperienceRepository;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
@@ -15,11 +14,6 @@ import org.springframework.stereotype.Service;
 public class ExperienceService {
     @Autowired
     ExperienceRepository experienceRepository;
-    
-    
-    public ArrayList<ExperienceModel> getExperience(){
-        return (ArrayList<ExperienceModel>) experienceRepository.findAll();
-    }
 
     //NUEVOS!
     public List<ExperienceModel> list(){
@@ -44,11 +38,10 @@ public class ExperienceService {
 
     public boolean existsByTitle(String title){
         return experienceRepository.existsByTitle(title);
-    } 
+    }     
 
-    public boolean existById(Long id){
+    public boolean existsById(Long id) {
         return experienceRepository.existsById(id);
     }
-    
 }
 

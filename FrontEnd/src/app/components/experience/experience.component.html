@@ -1,13 +1,11 @@
 <div class="container">
     <div class="row">
 
-        <h3 class="title col-lg-9 col-md-9 col-sm-9 col-xs-9">Experiencia laboral</h3>
-    
-        <div *ngIf="isLogged" class="editbtn col-lg-3 col-md-3 col-sm-3 col-xs-3">
+        <h3 class="title col-lg-4 col-md-6 col-sm-9 col-xs-9">Experiencia laboral</h3>
+        
+        <div *ngIf="isLogged" class="mb-3 col-lg-1 col-md-1 col-sm-1 col-xs-1">
             <!--NO ESTA PROBADO-->
-            <button routerLink="" class="btn btn-edit-elim"><img src="../../../assets/images/pen.svg" alt="editar"></button>
-            <!--NO ESTA PROBADO-->
-            <button   class="btn btn-edit-elim"><img src="../../../assets/images/trash.svg" alt="eliminar"></button>
+            <button routerLink="/newExp" class="btn btn-edit-elim"><img src="../../../assets/images/plus.svg" alt="agregar experiencia laboral"></button>
           </div>
 
     </div>
@@ -23,6 +21,13 @@
             
             <p class="text">{{elem.company}}</p>
             <p class="text">{{elem.description}}</p> 
+
+            <div *ngIf="isLogged" class="editbtn">
+                <!--NO ESTA PROBADO-->
+                <button routerLink="" class="btn btn-edit-elim"><img src="../../../assets/images/pen.svg" alt="editar"></button>
+                <!--NO ESTA PROBADO-->
+                <button   class="btn btn-edit-elim"><img src="../../../assets/images/trash.svg" alt="eliminar"></button>
+              </div>
         </div>
     </div>
 </div>

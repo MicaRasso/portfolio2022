@@ -1,8 +1,10 @@
 package com.portfolio.MR.Controller;
 
+import com.portfolio.MR.DTO.AcademicDTO;
 import com.portfolio.MR.Model.AcademicModel;
 import com.portfolio.MR.Service.AcademicService;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,38 +24,97 @@ import org.springframework.web.bind.annotation.RestController;
 public class AcademicController {
     @Autowired
     AcademicService academicService;
-            
-     @GetMapping("/list")
-    public ResponseEntity<List<AcademicModel>> list(){
-        List<AcademicModel> list;
-        list = academicService.list();
-        return new ResponseEntity(list,HttpStatus.OK);
-    }
+      
     
-    @PostMapping("/set")
-    public AcademicModel save(@RequestBody AcademicModel academic){
-        return this.academicService.save(academic);
+    @GetMapping("/list")
+    public ResponseEntity<List<AcademicModel>> list(){
+        List<AcademicModel> list = academicService.list();
+        return new ResponseEntity(list, HttpStatus.OK);
+    }
+    @GetMapping("/detail/{id}")
+    public ResponseEntity<AcademicModel> getById(@PathVariable("id")Long id){
+        if(!academicService.existById(id)){
+            return new ResponseEntity(new Message("No existe el ID"), HttpStatus.BAD_REQUEST);
+        }
+        
+        AcademicModel educacion = academicService.getOne(id).get();
+        return new ResponseEntity(educacion, HttpStatus.OK);
     }
     
     @DeleteMapping("/delete/{id}")
-    public void delete(@PathVariable Long id){
-        this.academicService.delete(id);
+    public ResponseEntity<?> delete(@PathVariable("id") Long id){
+        if(!academicService.existById(id)){
+            return new ResponseEntity(new Message("No existe el ID"), HttpStatus.NOT_FOUND);
+        }
+        academicService.delete(id);
+        return new ResponseEntity(new Message("Educacion eliminada"), HttpStatus.OK);
     }
     
-    @PostMapping("/update/{id}")     
-    public void update(@PathVariable("id") Long id,@RequestBody AcademicModel academic){
-        if(academicService.existById(id)){
-            AcademicModel acad= new AcademicModel();
-            if(academic.getTitle()!=null)
-                acad.setTitle(academic.getTitle());
-            if(academic.getDescription()!=null)
-                acad.setDescription(academic.getDescription());
-            if(academic.getiDate()!=null)
-                acad.setiDate(academic.getiDate());
-            if(academic.getfDate()!=null)
-                acad.setfDate(academic.getfDate());
-            if(academic.getInstitute()!=null)
-                acad.setInstitute(academic.getInstitute());
+    @PostMapping("/create")
+    public ResponseEntity<?> create(@RequestBody AcademicDTO dtoaca){
+        if(StringUtils.isBlank(dtoaca.getTitle())){
+            return new ResponseEntity(new Message("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
         }
+        if(StringUtils.isBlank(dtoaca.getDescription())){
+            return new ResponseEntity(new Message("La descripcion no puede estar vacia"), HttpStatus.BAD_REQUEST);
+        }
+        if(StringUtils.isBlank((CharSequence) dtoaca.getiDate())){
+            return new ResponseEntity(new Message("La fecha de inicio no puede estar vacia"), HttpStatus.BAD_REQUEST);
+        }
+        
+        
+        AcademicModel aca = new AcademicModel(
+                dtoaca.getTitle(), 
+                dtoaca.getiDate(),
+                dtoaca.getfDate(),
+                dtoaca.getDescription(),
+                dtoaca.getInstitute()
+            );
+        academicService.save(aca);
+        return new ResponseEntity(new Message("Educacion creada"), HttpStatus.OK);
+                
     }
+    
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody AcademicDTO dtoaca){
+        if(!academicService.existById(id)){
+            return new ResponseEntity(new Message("No existe el ID"), HttpStatus.NOT_FOUND);
+        }
+        if(StringUtils.isBlank(dtoaca.getTitle())){
+            return new ResponseEntity(new Message("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
+        }
+        if(StringUtils.isBlank(dtoaca.getDescription())){
+            return new ResponseEntity(new Message("La descripcion no puede estar vacia"), HttpStatus.BAD_REQUEST);
+        }
+        if(StringUtils.isBlank((CharSequence) dtoaca.getiDate())){
+            return new ResponseEntity(new Message("La fecha de inicio no puede estar vacia"), HttpStatus.BAD_REQUEST);
+        }
+   
+        AcademicModel aca = academicService.getOne(id).get();
+
+        aca.setTitle(dtoaca.getTitle());
+        aca.setDescription(dtoaca.getDescription());
+        aca.setiDate(dtoaca.getiDate());
+        aca.setInstitute(dtoaca.getInstitute());
+        aca.setfDate(dtoaca.getfDate());
+              
+   
+      
+        academicService.save(aca);
+        
+        return new ResponseEntity(new Message("Educacion actualizada"), HttpStatus.OK);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

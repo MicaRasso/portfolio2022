@@ -24,17 +24,17 @@ public class ExperienceModel implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fDate;
     private String description;
-    private Long id_company;
+    private String company;
 
     public ExperienceModel() {
     }
 
-    public ExperienceModel(String title, Date iDate, Date fDate, String description, Long id_company) {
+    public ExperienceModel(String title, Date iDate, Date fDate, String description, String company) {
         this.title = title;
         this.iDate = iDate;
         this.fDate = fDate;
         this.description = description;
-        this.id_company = id_company;
+        this.company = company;
     }
 
     public Long getId() {
@@ -76,14 +76,14 @@ public class ExperienceModel implements Serializable {
         this.description = description;
     }
 
-    public Long getId_company() {
-        return id_company;
+    public String getCompany() {
+        return company;
     }
 
-    public void setId_company(Long id_company) {
-        this.id_company = id_company;
+    public void setCompany(String company) {
+        this.company = company;
     }
-    
+
     
   
 }

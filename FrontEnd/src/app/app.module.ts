@@ -16,9 +16,8 @@ import { ProyectComponent } from './components/proyect/proyect.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { Page404Component } from './components/page404/page404.component';
-import { LoginformComponent } from './components/login/loginform/loginform.component';
-import { RegisterformComponent } from './components/login/registerform/registerform.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { NewExperienceComponent } from './components/experience/new-experience/new-experience.component';
 
  
 @NgModule({
@@ -33,9 +32,8 @@ import { LayoutComponent } from './components/layout/layout.component';
     ExperienceComponent,
     LoginComponent,
     Page404Component,
-    LoginformComponent,
-    RegisterformComponent,
     LayoutComponent,
+    NewExperienceComponent,
   ],
   imports: [
     BrowserModule,

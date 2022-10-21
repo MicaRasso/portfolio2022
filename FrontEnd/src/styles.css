@@ -95,3 +95,14 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #581845;
 }
+
+/*Formularios*/
+.alert-text{
+  font-size: 10px;
+}
+.form-container{
+  padding-bottom: 2em;
+}
+.fullscreen{
+  height: 33em;
+}

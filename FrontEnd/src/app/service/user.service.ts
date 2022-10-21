@@ -14,4 +14,26 @@ export class UserService {
   public getUser(): Observable<user>{
     return this.http.get<user>(this.URL+'get');
   }
+
+    //para obtener datos de una exp particular
+  public detail(id:number):Observable<user>{
+    return this.http.get<user>(this.URL + `detail/${id}`);
+  }
+
+  //guardar
+  public save(us:user):Observable<any>{
+    return this.http.post<any>(this.URL + `create`,us);
+  }
+
+  //actualizar
+  public update(id:number,us:user):Observable<any>{
+    return this.http.put<any>(this.URL + `update/${id}` ,us)
+  }
+
+  //borrar
+  public delete(id:number):Observable<any>{
+    return this.http.delete<any>(this.URL + `delete/${id}`)
+  }
+
+
 }

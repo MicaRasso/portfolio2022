@@ -16,8 +16,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserPassRepository extends CrudRepository<UserPassModel, Long>{
 
-    public String getPasswordById(Long id);
-
     public String getPasswordById(int id);
+
+    public String getMailById(int id);
     
 }

@@ -15,5 +15,7 @@ import org.springframework.stereotype.Repository;
 public interface ExperienceRepository extends JpaRepository<ExperienceModel, Long>{
     public Optional<ExperienceModel> findByTitle(String title);
     public boolean existsByTitle(String title);
-}
+
+    public boolean existsById(Long id);
+ }
 

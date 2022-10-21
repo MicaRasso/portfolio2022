@@ -41,5 +41,6 @@ public class AcademicService {
     
     public Optional<AcademicModel> getByTitle(String title){
         return academicRepository.findByTitle(title);
-    }
+    }   
+    
 }

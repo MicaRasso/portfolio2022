@@ -1,20 +1,41 @@
 <app-header></app-header>
 <div class="container fullscreen justify-content-center">
     <div class="form-container">
-        <h2 class="title  ml-5">Bienvenido!</h2>
-        <!--Configurar cuando pueda autenticar la contra y el mail
-            <ng-container *ngIf="">
-            <ng-container *ngSwitchCase="''">
-                <app-loginform></app-loginform>
-            </ng-container>
-            <ng-container *ngSwitchDefault="">
-                <app-registerform></app-registerform>
-            </ng-container>
-        </ng-container>
-    -->
-    <!--<app-loginform></app-loginform>-->
-    <div class="container m-8 d-flex justify-content-center">
-        <form class="gap-3 form-container" [formGroup]="userForm" (ngSubmit)="loggedin()">
+        <h2 class="title  ml-5">Ingrese los datos de la experiencia laboral</h2>
+        <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+            <div class="form-group">
+                <label for="title">Titulo</label>
+                <input type="text" class="form-control" id="title" formControlName="title" [(ngModel)]="title" required>
+            </div>
+            <div class="form-group">
+                <label for="iDate">Fecha de inicio</label>
+                <input type="date" class="form-control" id="iDate" formControlName="iDate" [(ngModel)]="iDate" required>
+            </div>
+            <div class="form-group">
+                <label for="fDate">Fecha de finalización</label>
+                <input type="date" class="form-control" id="fDate" formControlName="fDate" [(ngModel)]="fDate">
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción de tareas</label>
+                <input type="text" class="form-control" id="description" formControlName="description" [(ngModel)]="description" required>
+            </div>
+            <div class="form-group">
+                <label for="company">Descripción de tareas</label>
+                <input type="text" class="form-control" id="company" formControlName="company" [(ngModel)]="company" required>
+            </div>
+            
+
+            <div>
+                <button type="submit" class="btn btn-primary btn-lg">Agregar experiencia laboral</button>
+            </div>
+        </form>
+
+    </div>
+   
+   
+   
+  <!--    <div class="container m-8 d-flex justify-content-center">
+        <form class="gap-3 form-container" [formGroup]="userForm">
             <div class="form-group mb-3">
                 <label for="email">Mail</label>
                 <input type="text" class="form-control" id="email" formControlName="email">
@@ -51,13 +72,8 @@
             </div>
             <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
         </form>
-    </div>
-     
-        
-        <p class="text-center">
-            <a routerLink="/inicio" class="btn btn-secondary">Inicio</a>
-        </p>
-    <div>
+    -->
 
-    <app-footer></app-footer>
 </div>
+     
+<app-footer></app-footer>
