@@ -19,7 +19,7 @@ public class AcademicService {
         return (List<AcademicModel>) academicRepository.findAll();
     }
 
-    public Optional<AcademicModel> getOne(long id){
+    public Optional<AcademicModel> getOne(Long id){
         return academicRepository.findById(id);
     }
 

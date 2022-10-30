@@ -4,22 +4,20 @@ import java.util.Date;
 import javax.persistence.Temporal;
 
 public class AcademicDTO {
-private String title;
+    private String title;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date iDate;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fDate;
-    private String description;
     private String institute;
 
     public AcademicDTO() {
     }
 
-    public AcademicDTO(String title, Date iDate, Date fDate, String description, String institute) {
+    public AcademicDTO(String title, Date iDate, Date fDate, String institute) {
         this.title = title;
         this.iDate = iDate;
         this.fDate = fDate;
-        this.description = description;
         this.institute = institute;
     }
 
@@ -45,14 +43,6 @@ private String title;
 
     public void setfDate(Date fDate) {
         this.fDate = fDate;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getInstitute() {

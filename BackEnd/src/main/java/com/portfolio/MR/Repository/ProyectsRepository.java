@@ -19,4 +19,6 @@ public interface ProyectsRepository extends CrudRepository<ProyectModel, Long>{
     public Optional<ProyectModel> findByTitle(String title);
     public boolean existsByTitle(String title);
     
+    @Override
+    public boolean existsById(Long id);
 }

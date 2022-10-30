@@ -8,6 +8,10 @@
 #DE88EE   rgba(222, 136, 238, .5)  //lila
 #DD6493   rgba(221, 100, 147)  //rosa
 */
+body{
+  background-color: #27051d;
+}
+
 /*Button style*/
 .btn-primary,.btn-primary:visited{
   background-color: #581845;

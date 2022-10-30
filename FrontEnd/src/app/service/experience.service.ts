@@ -16,13 +16,13 @@ export class ExperienceService {
   }
 
   //para obtener datos de una exp particular
-  public detail(id:number):Observable<experience[]>{
-    return this.http.get<experience[]>(this.URL + `detail/${id}`);
+  public detail(id:number):Observable<experience>{
+    return this.http.get<experience>(this.URL + `detail/${id}`);
   }
 
   //guardar
   public save(exp:experience):Observable<any>{
-    return this.http.post<any>(this.URL + `create`,exp);
+   return this.http.post<any>(this.URL + `create`,exp);
   }
 
   //actualizar

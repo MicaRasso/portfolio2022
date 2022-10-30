@@ -10,8 +10,8 @@ import { ValidationService } from 'src/app/service/validation.service';
 })
 export class AcademicComponent implements OnInit {
 
-  public academic:Array<academic>=[];
-
+  aca:academic[]=[];
+  
   constructor(public academicService:AcademicService,public validationService:ValidationService) { }
 
   isLogged=false;
@@ -23,8 +23,22 @@ export class AcademicComponent implements OnInit {
 
   createAcad():void{
     this.academicService.list().subscribe(data=> {
-      this.academic=data;
+      this.aca=data;
     })
+  }
+
+  deleteAca(id?:number):void{
+    if(id!= undefined){
+      console.log("El id es: ",id);
+      this.academicService.delete(id).subscribe(
+        data=>{
+          console.log("Experiencia eliminada")
+          location.reload();
+        },err=>{
+          console.log("No se pudo eliminar")
+        })
+    }else
+    console.log("No se identifico el id ",id);
   }
 
 }

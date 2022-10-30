@@ -18,6 +18,11 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { Page404Component } from './components/page404/page404.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { NewExperienceComponent } from './components/experience/new-experience/new-experience.component';
+import { EditExperienceComponent } from './components/experience/edit-experience/edit-experience.component';
+import { NewSkillComponent } from './components/skills/new-skill/new-skill.component';
+import { EditSkillComponent } from './components/skills/edit-skill/edit-skill.component';
+import { NewAcademicComponent } from './components/academic/new-academic/new-academic.component';
+import { EditAcademicComponent } from './components/academic/edit-academic/edit-academic.component';
 
  
 @NgModule({
@@ -34,6 +39,11 @@ import { NewExperienceComponent } from './components/experience/new-experience/n
     Page404Component,
     LayoutComponent,
     NewExperienceComponent,
+    EditExperienceComponent,
+    NewSkillComponent,
+    EditSkillComponent,
+    NewAcademicComponent,
+    EditAcademicComponent,
   ],
   imports: [
     BrowserModule,

@@ -24,7 +24,7 @@ public class SkillsService {
         return (List<SkillsModel>) skillsRepository.findAll();
     }
 
-    public Optional<SkillsModel> getOne(long id){
+    public Optional<SkillsModel> getOne(Long id){
         return skillsRepository.findById(id);
     }
     

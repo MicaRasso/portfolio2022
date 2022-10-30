@@ -4,14 +4,12 @@
         <h3 class="title col-lg-4 col-md-6 col-sm-9 col-xs-9">Experiencia laboral</h3>
         
         <div *ngIf="isLogged" class="mb-3 col-lg-1 col-md-1 col-sm-1 col-xs-1">
-            <!--NO ESTA PROBADO-->
             <button routerLink="/newExp" class="btn btn-edit-elim"><img src="../../../assets/images/plus.svg" alt="agregar experiencia laboral"></button>
-          </div>
+        </div>
 
     </div>
 
     
-
     <div class="row">
         <div class="box col-xs-12 col-sm-4 col-md-4 col-lg-4" *ngFor="let elem of exp">
             <h4 class="subtitle">{{elem.title}}</h4>
@@ -23,11 +21,9 @@
             <p class="text">{{elem.description}}</p> 
 
             <div *ngIf="isLogged" class="editbtn">
-                <!--NO ESTA PROBADO-->
-                <button routerLink="" class="btn btn-edit-elim"><img src="../../../assets/images/pen.svg" alt="editar"></button>
-                <!--NO ESTA PROBADO-->
-                <button   class="btn btn-edit-elim"><img src="../../../assets/images/trash.svg" alt="eliminar"></button>
-              </div>
+                <button routerLink="/editExp/{{elem.id}}"  class="btn btn-edit-elim"><img src="../../../assets/images/pen.svg" alt="editar"></button>
+                <button class="btn btn-edit-elim"><img src="../../../assets/images/trash.svg" alt="eliminar" (click)="deleteExp(elem.id)"></button>
+            </div>
         </div>
     </div>
 </div>

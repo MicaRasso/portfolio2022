@@ -58,9 +58,6 @@ public class ProyectsController {
         if (StringUtils.isBlank((CharSequence) dtopro.getDescription())) {
             return new ResponseEntity(new Message("La descripcion es obligatoria"), HttpStatus.BAD_REQUEST);
         }
-        if (StringUtils.isBlank((CharSequence) dtopro.getfDate())) {
-            return new ResponseEntity(new Message("La fecha de finalizacion es obligatoria"), HttpStatus.BAD_REQUEST);
-        }
 
         ProyectModel ski = new ProyectModel(dtopro.getTitle(), dtopro.getfDate(),dtopro.getDescription(),dtopro.getLink(),dtopro.getImg_URL());
         proyectsService.save(ski);
@@ -78,9 +75,6 @@ public class ProyectsController {
         }
         if (StringUtils.isBlank((CharSequence) dtopro.getDescription())) {
             return new ResponseEntity(new Message("La descripcion es obligatoria"), HttpStatus.BAD_REQUEST);
-        }
-        if (StringUtils.isBlank((CharSequence) dtopro.getfDate())) {
-            return new ResponseEntity(new Message("La fecha de finalizacion es obligatoria"), HttpStatus.BAD_REQUEST);
         }
 
         ProyectModel pro = proyectsService.getOne(id).get();

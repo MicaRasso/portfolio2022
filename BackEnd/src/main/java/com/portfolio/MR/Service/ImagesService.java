@@ -35,7 +35,7 @@ public class ImagesService {
         imagesRepository.deleteById(id);
     }
    
-    public Optional<ImagesModel>getOne(long id){
+    public Optional<ImagesModel>getOne(Long id){
         return imagesRepository.findById(id);
     }
     

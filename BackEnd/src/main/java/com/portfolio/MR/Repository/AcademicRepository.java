@@ -19,4 +19,6 @@ public interface AcademicRepository extends CrudRepository<AcademicModel, Long>{
     public Optional<AcademicModel> findByTitle(String title);
     public boolean existsByTitle(String title);
     
+    @Override
+    public boolean existsById(Long id);
 }

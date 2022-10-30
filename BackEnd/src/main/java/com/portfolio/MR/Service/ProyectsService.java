@@ -18,7 +18,7 @@ public class ProyectsService {
         return (List<ProyectModel>) proyectsRepository.findAll();
     }
 
-    public Optional<ProyectModel> getOne(long id){
+    public Optional<ProyectModel> getOne(Long id){
         return proyectsRepository.findById(id);
     }
     

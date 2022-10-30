@@ -54,9 +54,10 @@ public class ExperienceController {
     public ResponseEntity<?> create(@RequestBody ExperienceDTO dtoexp){      
         if(StringUtils.isBlank(dtoexp.getTitle()))
             return new ResponseEntity(new Message("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
-        ExperienceModel exp = new ExperienceModel(dtoexp.getTitle(),dtoexp.getiDate(),dtoexp.getiDate(), dtoexp.getDescription(),dtoexp.getCompany());
+            
+        ExperienceModel exp = new ExperienceModel(dtoexp.getTitle(),dtoexp.getiDate(),dtoexp.getfDate(), dtoexp.getDescription(),dtoexp.getCompany());
         experienceService.save(exp);
-        return new ResponseEntity(new Message("Experiencia agregada"), HttpStatus.OK);
+        return new ResponseEntity(new Message("Experiencia creada"), HttpStatus.OK);
     }
     
     @PutMapping("/update/{id}")

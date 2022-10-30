@@ -5,6 +5,8 @@ import com.portfolio.MR.Service.UserPassService;
 import java.util.ArrayList;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -21,35 +23,25 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserPassController {
     @Autowired
     UserPassService userService;
-            
+  /*          
     @GetMapping("/get")
     public ArrayList<UserPassModel> getUsers(){
         return userService.getUsers();
     }
-    
+    */
     @GetMapping("/get/{id}")
     public Optional<UserPassModel> getOne(@PathVariable Long id){
         return this.userService.getOne(id);
     }
     
-    @PostMapping("/set")
-    public UserPassModel saveUser(@RequestBody UserPassModel user){
-        return this.userService.saveUser(user);
-    }
-    
-    @PatchMapping("/update")
-    public void updateUser(@RequestBody UserPassModel user){
-        userService.saveUser(user);
-        //ME PARECE QUE HAY QUE CREAR OTRO METODO, PERO ME TENGO QUE IR
-    }
-    
     @PostMapping("/validate")
     public boolean validateUser(@RequestBody UserPassModel user){
         if(user.getPassword() != null && user.getMail() != null){
-            return user.getPassword().equals(userService.getPassword(1)) && user.getMail().equals(userService.getMail(1));
+            return user.getPassword().equals(userService.getPassword(1)) && user.getMail().equals(userService.getMail(1)); 
         }
         return false;
     }
+   
     
     
 }

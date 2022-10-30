@@ -16,8 +16,8 @@ export class SkillsService {
   }
 
   //para obtener datos de una exp particular
-  public detail(id:number):Observable<skills[]>{
-    return this.http.get<skills[]>(this.URL + `detail/${id}`);
+  public detail(id:number):Observable<skills>{
+    return this.http.get<skills>(this.URL + `detail/${id}`);
   }
 
   //guardar

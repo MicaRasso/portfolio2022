@@ -14,19 +14,24 @@ export class AcademicService {
   public list():Observable<academic[]>{
     return this.http.get<academic[]>(this.URL+'list')
   }
+  
 //para obtener datos de una exp particular
-public detail(id:number):Observable<academic[]>{
-  return this.http.get<academic[]>(this.URL + `detail/${id}`);
+public detail(id:number):Observable<academic>{
+  return this.http.get<academic>(this.URL + `detail/${id}`);
 }
 
 //guardar
-public save(exp:academic):Observable<any>{
-  return this.http.post<any>(this.URL + `create`,exp);
+public save(aca:academic):Observable<any>{
+  return this.http.post<any>(this.URL + `create`,aca);
 }
 
 //actualizar
-public update(id:number,exp:academic):Observable<any>{
-  return this.http.put<any>(this.URL + `update/${id}` ,exp)
+public update(id:number,aca:academic):Observable<any>{
+  console.log(aca.title);
+  console.log(aca.iDate);
+  console.log(aca.fDate);
+  console.log(aca.institute);
+  return this.http.put<any>(this.URL + `update/${id}` ,aca)
 }
 
 //borrar

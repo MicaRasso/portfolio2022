@@ -16,8 +16,8 @@ export class ProyectService {
   }
 
   //para obtener datos de una exp particular
-  public detail(id:number):Observable<proyect[]>{
-    return this.http.get<proyect[]>(this.URL + `detail/${id}`);
+  public detail(id:number):Observable<proyect>{
+    return this.http.get<proyect>(this.URL + `detail/${id}`);
   }
 
   //guardar

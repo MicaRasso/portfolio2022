@@ -54,22 +54,9 @@ public class AcademicController {
     public ResponseEntity<?> create(@RequestBody AcademicDTO dtoaca){
         if(StringUtils.isBlank(dtoaca.getTitle())){
             return new ResponseEntity(new Message("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
-        }
-        if(StringUtils.isBlank(dtoaca.getDescription())){
-            return new ResponseEntity(new Message("La descripcion no puede estar vacia"), HttpStatus.BAD_REQUEST);
-        }
-        if(StringUtils.isBlank((CharSequence) dtoaca.getiDate())){
-            return new ResponseEntity(new Message("La fecha de inicio no puede estar vacia"), HttpStatus.BAD_REQUEST);
-        }
+        }        
         
-        
-        AcademicModel aca = new AcademicModel(
-                dtoaca.getTitle(), 
-                dtoaca.getiDate(),
-                dtoaca.getfDate(),
-                dtoaca.getDescription(),
-                dtoaca.getInstitute()
-            );
+        AcademicModel aca = new AcademicModel(dtoaca.getTitle(),dtoaca.getiDate(),dtoaca.getfDate(),dtoaca.getInstitute());
         academicService.save(aca);
         return new ResponseEntity(new Message("Educacion creada"), HttpStatus.OK);
                 
@@ -83,9 +70,6 @@ public class AcademicController {
         if(StringUtils.isBlank(dtoaca.getTitle())){
             return new ResponseEntity(new Message("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
         }
-        if(StringUtils.isBlank(dtoaca.getDescription())){
-            return new ResponseEntity(new Message("La descripcion no puede estar vacia"), HttpStatus.BAD_REQUEST);
-        }
         if(StringUtils.isBlank((CharSequence) dtoaca.getiDate())){
             return new ResponseEntity(new Message("La fecha de inicio no puede estar vacia"), HttpStatus.BAD_REQUEST);
         }
@@ -93,7 +77,6 @@ public class AcademicController {
         AcademicModel aca = academicService.getOne(id).get();
 
         aca.setTitle(dtoaca.getTitle());
-        aca.setDescription(dtoaca.getDescription());
         aca.setiDate(dtoaca.getiDate());
         aca.setInstitute(dtoaca.getInstitute());
         aca.setfDate(dtoaca.getfDate());

@@ -10,4 +10,6 @@ public interface SkillsRepository extends CrudRepository<SkillsModel, Long>{
     public Optional<SkillsModel> findByName(String name);
     public boolean existsByName(String name);
     
+    @Override
+    public boolean existsById(Long id);
 }

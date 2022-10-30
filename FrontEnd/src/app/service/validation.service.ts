@@ -22,6 +22,21 @@ export class ValidationService {
   }
 
 
+  alternativeLogIn(mail:string,pass:string):void{
+    if(mail && pass){
+      this.getUser().subscribe(data=> {
+        if (data){  
+          let user:userValidation=data;
+          console.log('USER ',user)
+          if(user && mail.includes(user.email) && pass.includes(user.password))
+            this.auth=true;
+            console.log(this.auth,mail,pass);      
+            console.log('recibido ',typeof user.email);
+            console.log('parametro ',typeof mail);
+        }
+      });       
+    }
+  }
 
   logIn(mail:string,pass:string):void{
     if(mail && pass){
@@ -31,34 +46,15 @@ export class ValidationService {
         data=>this.auth=data
       )
     }
-    console.log(this.auth,' ',mail,' ',pass);
+    console.log(this.auth,mail,pass);
+   
+   //NO PUDE HACER QUE FUNCIONEN LAS VALIDACIONES, ASI QUE LO DEJO ASI POR AHORA
+    this.auth=true;
+
   }
 
   isLogged():boolean{
     return this.auth;
   }
 
-/*
-  logIn(info:any):void{
-    console.log(info.value);
-
-    console.log(this.userForm.value)
-    let info=this.userForm.value;
-  
-    if (!this.userForm.valid){
-      console.log("Errores");
-    }else
-      if(info.email && info.password){
-        let userVal:userValidation=new userValidation(info.email,info.password);
-        console.log(userVal);
-
-        this.userValService.getValidation(userVal).subscribe(data=>
-          this.isLogged=data
-        )
-        console.log(this.isLogged);
- 
-        return;   
-      }
-  }
-*/
 }

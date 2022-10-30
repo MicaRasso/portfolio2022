@@ -1,11 +1,11 @@
 export class academic{
     id?:number;
     title:string;
-    iDate:Date;
-    fDate:Date;
+    iDate:string;
+    fDate:string;
     institute:string;
 
-    constructor(title:string,iDate:Date,fDate:Date,institute:string){
+    constructor(title:string,iDate:string,fDate:string,institute:string){
         this.title=title;
         this.iDate=iDate;
         this.fDate=fDate;

@@ -42,7 +42,8 @@ export class LoginComponent implements OnInit {
         let mail=this.form.email.value.toString();
         let pass=this.form.password.value.toString();
 
-        this.userValService.logIn(mail,pass);     
+        this.userValService.logIn(mail,pass);   
+//        this.userValService.alternativeLogIn(mail,pass);  
         
         this.isLogged=this.userValService.isLogged();
         if(this.isLogged)

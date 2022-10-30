@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="container fullscreen justify-content-center">
+    <div class="form-container">
+        <h2 class="title  ml-5">Ingrese los datos de la formación académica</h2>
+       
+        <form (ngSubmit)="onUpdate()">
+            <div class="form-group">
+                <label for="title">Titulo</label>
+                <input type="text" class="form-control" id="title" [(ngModel)]="aca.title" [ngModelOptions]="{standalone: true}" required>
+            </div>
+            <div class="form-group">
+                <label for="iDate">Fecha de inicio</label>
+                <input type="date" class="form-control" id="iDate" [(ngModel)]="aca.iDate" [ngModelOptions]="{standalone: true}" required>
+            </div>
+            <div class="form-group">
+                <label for="fDate">Fecha de finalización</label>
+                <input type="date" class="form-control" id="fDate" [(ngModel)]="aca.fDate" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group">
+                <label for="company">Empresa</label>
+                <input type="text" class="form-control" id="company"  [(ngModel)]="aca.institute" [ngModelOptions]="{standalone: true}" required>
+            </div>
+
+
+            <div>
+                <button type="submit" class="btn btn-primary btn-lg">Actualizar formación académica</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+     
+<app-footer></app-footer>

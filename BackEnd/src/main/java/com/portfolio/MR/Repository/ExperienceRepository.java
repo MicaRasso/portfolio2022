@@ -16,6 +16,7 @@ public interface ExperienceRepository extends JpaRepository<ExperienceModel, Lon
     public Optional<ExperienceModel> findByTitle(String title);
     public boolean existsByTitle(String title);
 
+    @Override
     public boolean existsById(Long id);
  }
 

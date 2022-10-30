@@ -31,17 +31,15 @@ public class AcademicModel implements Serializable {
     private Date iDate;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fDate;
-    private String description;
     private String institute;
 
     public AcademicModel() {
     }
 
-    public AcademicModel(String title, Date iDate, Date fDate, String description, String institute) {
+    public AcademicModel(String title, Date iDate, Date fDate, String institute) {
         this.title = title;
         this.iDate = iDate;
         this.fDate = fDate;
-        this.description = description;
         this.institute = institute;
     }
 
@@ -67,14 +65,6 @@ public class AcademicModel implements Serializable {
 
     public void setfDate(Date fDate) {
         this.fDate = fDate;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getInstitute() {
