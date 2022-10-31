@@ -15,7 +15,7 @@ export class UserService {
     return this.http.get<user>(this.URL+'get');
   }
 
-    //para obtener datos de una exp particular
+    //para obtener datos de un user particular
   public detail(id:number):Observable<user>{
     return this.http.get<user>(this.URL + `detail/${id}`);
   }

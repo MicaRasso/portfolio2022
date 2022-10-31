@@ -27,4 +27,18 @@ export class ProyectComponent implements OnInit {
       this.proy=data;
     })
   }
+
+  deleteProy(id?:number):void{
+    if(id!= undefined){
+      console.log("El id es: ",id);
+      this.proyectService.delete(id).subscribe(
+        data=>{
+          console.log("Experiencia eliminada")
+          location.reload();
+        },err=>{
+          console.log("No se pudo eliminar")
+        })
+    }else
+    console.log("No se identifico el id ",id);
+  }
 }

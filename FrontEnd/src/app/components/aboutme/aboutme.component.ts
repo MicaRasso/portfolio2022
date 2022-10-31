@@ -9,7 +9,7 @@ import { ValidationService } from 'src/app/service/validation.service';
 })
 export class AboutmeComponent implements OnInit {
 
-  public aboutme:aboutme=new aboutme("","","","","","","");
+  public aboutme:aboutme=null;
   
   constructor(public aboutmeService:AboutmeService,public validationService:ValidationService) { }
 

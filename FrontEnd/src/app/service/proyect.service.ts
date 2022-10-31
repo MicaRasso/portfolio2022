@@ -15,7 +15,7 @@ export class ProyectService {
     return this.http.get<proyect[]>(this.URL+'list')
   }
 
-  //para obtener datos de una exp particular
+  //para obtener datos de un proyecto particular
   public detail(id:number):Observable<proyect>{
     return this.http.get<proyect>(this.URL + `detail/${id}`);
   }

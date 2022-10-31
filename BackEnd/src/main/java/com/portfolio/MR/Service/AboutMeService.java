@@ -34,4 +34,8 @@ public class AboutMeService {
     public void delete(Long id){
         aboutMeRepository.deleteById(id);
     }
+     
+    public boolean existById(Long id){
+        return aboutMeRepository.existsById(id);
+    }
 }

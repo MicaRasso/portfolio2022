@@ -7,14 +7,11 @@
             <button routerLink="/newSki" class="btn btn-edit-elim"><img src="../../../assets/images/plus.svg" alt="agregar habilidad"></button>
         </div>
 
-    </div>
-
-    
+    </div>    
 
     <div class="row">
-        <h3 class="subtitle">Soft</h3>
         <div class="col-xs-5 col-sm-5 col-md-4 col-lg-3" *ngFor="let item of sk">
-            <circle-progress *ngIf="!item.hard"
+            <circle-progress 
             [percent]="(item.percentage)"
             [radius]="100"
             [outerStrokeWidth]="20"
@@ -38,34 +35,4 @@
 
         </div>
     </div>
-
-    <div class="row">
-        <h3 class="subtitle">Hard</h3>
-        <div class="col-xs-5 col-sm-5 col-md-4 col-lg-3" *ngFor="let item of sk">
-            <circle-progress *ngIf="item.hard"
-            [percent]="(item.percentage)"
-            [radius]="100"
-            [outerStrokeWidth]="20"
-            [innerStrokeWidth]="2"
-            [outerStrokeColor]="'#900C3F'"
-            [innerStrokeColor]="'#DE88EE'"
-            [animation]="true"
-            [animationDuration]="500"
-            [title]="(item.name)"
-            [titleFontSize]="'0.8em'"
-            [titleColor]="'#DE88EE'"
-            [showUnits]="false"
-            [showSubtitle]="false"
-            [responsive]="true"
-            ></circle-progress>
-            
-            <div *ngIf="isLogged" class="editbtn">
-                <button routerLink="/editSki/{{item.id}}"  class="btn btn-edit-elim"><img src="../../../assets/images/pen.svg" alt="editar"></button>
-                <button class="btn btn-edit-elim"><img src="../../../assets/images/trash.svg" alt="eliminar" (click)="deleteSki(item.id)"></button>
-            </div>
-
-        </div>
-    </div>
-
-    
 </div>

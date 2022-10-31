@@ -15,7 +15,7 @@ export class AcademicService {
     return this.http.get<academic[]>(this.URL+'list')
   }
   
-//para obtener datos de una exp particular
+//para obtener datos de una aca particular
 public detail(id:number):Observable<academic>{
   return this.http.get<academic>(this.URL + `detail/${id}`);
 }
@@ -27,10 +27,6 @@ public save(aca:academic):Observable<any>{
 
 //actualizar
 public update(id:number,aca:academic):Observable<any>{
-  console.log(aca.title);
-  console.log(aca.iDate);
-  console.log(aca.fDate);
-  console.log(aca.institute);
   return this.http.put<any>(this.URL + `update/${id}` ,aca)
 }
 

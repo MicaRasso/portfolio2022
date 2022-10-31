@@ -47,7 +47,7 @@ public class AcademicController {
             return new ResponseEntity(new Message("No existe el ID"), HttpStatus.NOT_FOUND);
         }
         academicService.delete(id);
-        return new ResponseEntity(new Message("Educacion eliminada"), HttpStatus.OK);
+        return new ResponseEntity(new Message("Formación académica eliminada"), HttpStatus.OK);
     }
     
     @PostMapping("/create")
@@ -58,7 +58,7 @@ public class AcademicController {
         
         AcademicModel aca = new AcademicModel(dtoaca.getTitle(),dtoaca.getiDate(),dtoaca.getfDate(),dtoaca.getInstitute());
         academicService.save(aca);
-        return new ResponseEntity(new Message("Educacion creada"), HttpStatus.OK);
+        return new ResponseEntity(new Message("Formación académica creada"), HttpStatus.OK);
                 
     }
     
@@ -66,12 +66,6 @@ public class AcademicController {
     public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody AcademicDTO dtoaca){
         if(!academicService.existById(id)){
             return new ResponseEntity(new Message("No existe el ID"), HttpStatus.NOT_FOUND);
-        }
-        if(StringUtils.isBlank(dtoaca.getTitle())){
-            return new ResponseEntity(new Message("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
-        }
-        if(StringUtils.isBlank((CharSequence) dtoaca.getiDate())){
-            return new ResponseEntity(new Message("La fecha de inicio no puede estar vacia"), HttpStatus.BAD_REQUEST);
         }
    
         AcademicModel aca = academicService.getOne(id).get();

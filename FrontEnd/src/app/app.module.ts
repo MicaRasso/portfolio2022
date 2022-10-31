@@ -23,6 +23,12 @@ import { NewSkillComponent } from './components/skills/new-skill/new-skill.compo
 import { EditSkillComponent } from './components/skills/edit-skill/edit-skill.component';
 import { NewAcademicComponent } from './components/academic/new-academic/new-academic.component';
 import { EditAcademicComponent } from './components/academic/edit-academic/edit-academic.component';
+import { EditAboutMeComponent } from './components/aboutme/edit-about-me/edit-about-me.component';
+import { NewProyectComponent } from './components/proyect/new-proyect/new-proyect.component';
+import { EditProyectComponent } from './components/proyect/edit-proyect/edit-proyect.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
  
 @NgModule({
@@ -44,6 +50,9 @@ import { EditAcademicComponent } from './components/academic/edit-academic/edit-
     EditSkillComponent,
     NewAcademicComponent,
     EditAcademicComponent,
+    EditAboutMeComponent,
+    NewProyectComponent,
+    EditProyectComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +68,8 @@ import { EditAcademicComponent } from './components/academic/edit-academic/edit-
       animationDuration: 300
     }),
     HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage()),
   ],
   providers: [],
   bootstrap: [AppComponent]

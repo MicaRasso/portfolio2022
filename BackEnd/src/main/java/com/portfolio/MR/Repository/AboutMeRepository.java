@@ -15,5 +15,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface AboutMeRepository extends CrudRepository<AboutMeModel, Long>{
-    
+
 }

@@ -27,12 +27,10 @@ export class EditSkillComponent implements OnInit {
    this.skiService.update(id,this.ski).subscribe(
     data=>{
       alert("Experiencia editada")
-      this.router.navigate([""]);
+      location.reload();
     },err=>{
       alert("No se pudo editar")
       this.router.navigate([""])
     });
   }
-
-
 }

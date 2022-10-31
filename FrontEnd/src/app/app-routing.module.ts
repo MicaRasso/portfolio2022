@@ -9,6 +9,8 @@ import { NewAcademicComponent } from './components/academic/new-academic/new-aca
 import { EditAcademicComponent } from './components/academic/edit-academic/edit-academic.component';
 import { NewSkillComponent } from './components/skills/new-skill/new-skill.component';
 import { EditSkillComponent } from './components/skills/edit-skill/edit-skill.component';
+import { EditAboutMeComponent } from './components/aboutme/edit-about-me/edit-about-me.component';
+import { EditProyectComponent } from './components/proyect/edit-proyect/edit-proyect.component';
 
 
 const routes: Routes = [
@@ -21,6 +23,8 @@ const routes: Routes = [
   {path:'editSki/:id',component:EditSkillComponent},
   {path:'newAca',component:NewAcademicComponent},
   {path:'editAca/:id',component:EditAcademicComponent},
+  {path:'editAboutMe',component:EditAboutMeComponent},
+  {path:'editProy/:id',component:EditProyectComponent},
   {path:'**',component:Page404Component},
 ];
 

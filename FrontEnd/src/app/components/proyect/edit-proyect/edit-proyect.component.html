@@ -1,0 +1,40 @@
+<app-header></app-header>
+<div class="container fullscreen justify-content-center">
+    <div class="form-container">
+        <h2 class="title  ml-5">Ingrese los datos del proyecto</h2>
+       
+        <form (ngSubmit)="onUpdate()">
+            <div class="form-group">
+                <label for="title">Titulo</label>
+                <input type="text" class="form-control" id="title" [(ngModel)]="proy.title" [ngModelOptions]="{standalone: true}" required>
+            </div>
+            <div class="form-group">
+                <label for="fDate">Fecha de finalización</label>
+                <input type="date" class="form-control" id="fDate" [(ngModel)]="proy.fDate" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción</label>
+                <input type="text" class="form-control" id="description" [(ngModel)]="proy.description" [ngModelOptions]="{standalone: true}" required>
+            </div>
+            <div class="form-group">
+                <label for="company">Empresa</label>
+                <input type="text" class="form-control" id="company"  [(ngModel)]="proy.company" [ngModelOptions]="{standalone: true}" required>
+            </div>
+            <div class="form-group">
+                <label for="link">Repositorio</label>
+                <input type="text" class="form-control" id="link"  [(ngModel)]="proy.link" [ngModelOptions]="{standalone: true}" required>
+            </div>
+            <div class="form-group">
+                <label for="img_URL">Imagen del proyecto</label>
+                <input type="file" class="form-control" id="img_URL" [(ngModel)]="proy.img_URL" [ngModelOptions]="{standalone: true}" required (change)="uploadImg($event)" accept=".jpg,.jpeg,.png">
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary btn-lg">Editar experiencia laboral</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+     
+<app-footer></app-footer>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { academic } from 'src/app/model/academic.model';
 import { AcademicService } from 'src/app/service/academic.service';
+import { ValidationService } from 'src/app/service/validation.service';
 
 @Component({
   selector: 'app-new-academic',
@@ -14,10 +15,14 @@ export class NewAcademicComponent implements OnInit {
   fDate:string='';
   institute: string='';  
 
+  isLogged:boolean;
 
-  constructor(private acaService:AcademicService, private router:Router) {}
+  constructor(private acaService:AcademicService, private router:Router,private valService:ValidationService) {}
 
   ngOnInit(): void {
+    this.isLogged=this.valService.isLogged();
+    if(this.isLogged==false)
+    this.router.navigate([""]);
   }
 
   onCreate():void{
@@ -25,10 +30,11 @@ export class NewAcademicComponent implements OnInit {
     this.acaService.save(aca).subscribe(
       data=>{
         console.log("Formación académica añadida")
+        location.reload();
       },err=>{
         console.log("No se pudo añadir")
+        this.router.navigate([""])
       })
-      this.router.navigate([""])
   }
 
 

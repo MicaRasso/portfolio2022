@@ -14,4 +14,9 @@ export class AboutmeService {
   public getAboutMe():Observable<aboutme>{
     return this.http.get<aboutme>(this.URL+'get/1')
   }
+
+  //actualizar
+  public update(dat:aboutme):Observable<any>{
+    return this.http.put<any>(this.URL + `update/1` ,dat)
+  }
 }

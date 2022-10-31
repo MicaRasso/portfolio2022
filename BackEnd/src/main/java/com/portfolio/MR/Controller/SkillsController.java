@@ -55,11 +55,8 @@ public class SkillsController {
         if (StringUtils.isBlank(dtoski.getName())) {
             return new ResponseEntity(new Message("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         }
-        if (StringUtils.isBlank((CharSequence) dtoski.getPercentage())) {
-            return new ResponseEntity(new Message("El porcentaje es obligatorio"), HttpStatus.BAD_REQUEST);
-        }
 
-        SkillsModel ski = new SkillsModel(dtoski.getName(), dtoski.getPercentage(),dtoski.isHard());
+        SkillsModel ski = new SkillsModel(dtoski.getName(), dtoski.getPercentage());
         skillsService.save(ski);
 
         return new ResponseEntity(new Message("Skill agregada"), HttpStatus.OK);

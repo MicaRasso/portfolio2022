@@ -1,11 +1,14 @@
 
 package com.portfolio.MR.Controller;
 
+import com.portfolio.MR.DTO.AboutMeDTO;
 import com.portfolio.MR.Model.AboutMeModel;
 import com.portfolio.MR.Service.AboutMeService;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,39 +40,20 @@ public class AboutMeController {
     }
     
     @PostMapping("/update/{id}")     
-    public AboutMeModel update(@PathVariable("id") Long id,@RequestBody AboutMeModel aboutMe){
-        //AboutMeModel about= new AboutMeModel();
+    public ResponseEntity<AboutMeModel> update(@PathVariable("id") Long id,@RequestBody AboutMeDTO dtoam){       
 
-/*
-        if(aboutMe.getName()!=null)
-            about.setName(aboutMe.getName());
-        if(aboutMe.getLastname()!=null)
-            about.setLastname(aboutMe.getLastname());
-        if(aboutMe.getBirthday()!=null)
-            about.setTitle(aboutMe.getTitle());
-        if(aboutMe.getDescription()!=null)
-            about.setDescription(aboutMe.getDescription());
-        if(aboutMe.getBirthday()!=null)
-            about.setBirthday(aboutMe.getBirthday());
-        if(aboutMe.getImg_profile()!=null)
-            about.setImg_profile(aboutMe.getImg_profile());
-        if(aboutMe.getImg_banner()!=null)
-            about.setImg_banner(aboutMe.getImg_banner());
-        this.aboutMeService.save(about);
-*/        
+        AboutMeModel aboutme = aboutMeService.getOne(id).get();
         
-        if(aboutMe.getName()!=null && aboutMe.getLastname()!=null && aboutMe.getDescription()!=null && aboutMe.getBirthday()!=null && aboutMe.getImg_profile()!=null && aboutMe.getImg_banner()!=null){
-            /*about.setName(aboutMe.getName());
-            about.setLastname(aboutMe.getLastname());
-            about.setTitle(aboutMe.getTitle());
-            about.setDescription(aboutMe.getDescription());
-            about.setBirthday(aboutMe.getBirthday());
-            about.setImg_profile(aboutMe.getImg_profile());
-            about.setImg_banner(aboutMe.getImg_banner());
-            */
-            
-            return this.aboutMeService.save(aboutMe);
-        }
-        return null;
+        aboutme.setName(dtoam.getName());
+        aboutme.setLastname(dtoam.getLastname());
+        aboutme.setTitle(dtoam.getTitle());
+        aboutme.setDescription(dtoam.getDescription());
+        aboutme.setBirthday(dtoam.getBirthday());
+        aboutme.setImg_banner(dtoam.getImg_banner());
+        aboutme.setImg_profile(dtoam.getImg_profile());
+              
+        aboutMeService.save(aboutme);
+        
+        return new ResponseEntity(new Message("Perfil actualizado"), HttpStatus.OK);
     }
 }

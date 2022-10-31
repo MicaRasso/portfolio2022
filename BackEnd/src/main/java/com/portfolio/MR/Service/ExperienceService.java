@@ -15,7 +15,6 @@ public class ExperienceService {
     @Autowired
     ExperienceRepository experienceRepository;
 
-    //NUEVOS!
     public List<ExperienceModel> list(){
         return (List<ExperienceModel>) experienceRepository.findAll();
     }

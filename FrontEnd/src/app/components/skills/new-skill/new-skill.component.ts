@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { skills } from 'src/app/model/skills.model';
 import { SkillsService } from 'src/app/service/skills.service';
+import { ValidationService } from 'src/app/service/validation.service';
 
 @Component({
   selector: 'app-new-skill',
@@ -11,21 +12,26 @@ import { SkillsService } from 'src/app/service/skills.service';
 export class NewSkillComponent implements OnInit {
   name:string;
   percentage:number;
-  hard:boolean;
 
-  constructor(private skiService:SkillsService, private router:Router) { }
+  isLogged:boolean;
+
+  constructor(private skiService:SkillsService, private router:Router, private valService:ValidationService) { }
 
   ngOnInit(): void {
+    this.isLogged=this.valService.isLogged();
+    if(this.isLogged==false)
+    this.router.navigate([""]);
   }
 
   onCreate():void{
-    const exp= new skills(this.name,this.percentage,this.hard);
-    this.skiService.save(exp).subscribe(
+    const ski= new skills(this.name,this.percentage);
+    this.skiService.save(ski).subscribe(
       data=>{
         console.log("Experiencia añadida")
+        location.reload();
       },err=>{
         console.log("No se pudo añadir")
+        this.router.navigate([""])
       })
-      this.router.navigate([""])
   }
 }

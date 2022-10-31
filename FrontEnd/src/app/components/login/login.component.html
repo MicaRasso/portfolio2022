@@ -2,58 +2,23 @@
 <div class="container fullscreen justify-content-center">
     <div class="form-container">
         <h2 class="title  ml-5">Bienvenido!</h2>
-        <!--Configurar cuando pueda autenticar la contra y el mail
-            <ng-container *ngIf="">
-            <ng-container *ngSwitchCase="''">
-                <app-loginform></app-loginform>
-            </ng-container>
-            <ng-container *ngSwitchDefault="">
-                <app-registerform></app-registerform>
-            </ng-container>
-        </ng-container>
-    -->
-    <!--<app-loginform></app-loginform>-->
-    <div class="container m-8 d-flex justify-content-center">
-        <form class="gap-3 form-container" [formGroup]="userForm" (ngSubmit)="loggedin()">
-            <div class="form-group mb-3">
-                <label for="email">Mail</label>
-                <input type="text" class="form-control" id="email" formControlName="email">
-                <p 
-                    class="bg-danger text-light mt-1 px-2 rounded alert-text"
-                    *ngIf="(form.email.dirty ||form.email.touched) && form.email.errors && validated"    
-                >
-                    <ng-container [ngSwitch]="form.email.value">
-                        <ng-container *ngSwitchCase="''">
-                            El mail es requerido
-                        </ng-container>
-                        <ng-container *ngSwitchDefault>
-                            El mail es invalido
-                        </ng-container>
-                    </ng-container>
-                </p> 
-            </div>
-            <div class="form-group mb-3">
-                <label for="password">Contraseña</label>
-                <input type="password" class="form-control" id="password" formControlName="password">
-                <p 
-                class="bg-danger text-light mt-1 px-2 rounded alert-text"
-                *ngIf="(form.password.dirty ||form.password.touched) && form.password.errors && validated"    
-            >
-                <ng-container [ngSwitch]="form.password.value">
-                    <ng-container *ngSwitchCase="''">
-                        La contraseña es requerida
-                    </ng-container>
-                    <ng-container *ngSwitchDefault>
-                        La contraseña debe tener entre 5 y 10 caracteres
-                    </ng-container>
-                </ng-container>
-            </p>
-            </div>
-            <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
-        </form>
-    </div>
-     
-        
+    
+      
+<div class="container m-8 d-flex justify-content-center">
+    <form class="gap-3 form-container" (ngSubmit)="onLogIn()">
+        <div class="form-group mb-3">
+            <label for="email">Mail</label>
+            <input type="text" class="form-control" id="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+      
+        </div>
+        <div class="form-group mb-3">
+            <label for="password">Contraseña</label>
+            <input type="password" class="form-control" id="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+    </form>
+</div>
+
         <p class="text-center">
             <a routerLink="/inicio" class="btn btn-secondary">Inicio</a>
         </p>

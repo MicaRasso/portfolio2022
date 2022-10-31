@@ -1,10 +1,10 @@
 export class userValidation{
     id?:number;
-    email:string;
+    mail:string;
     password:string;
 
-    constructor(email:string,password:string){
-        this.email=email;
+    constructor(mail:string,password:string){
+        this.mail=mail;
         this.password=password;
     }
 

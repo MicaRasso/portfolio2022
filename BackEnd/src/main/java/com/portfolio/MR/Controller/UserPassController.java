@@ -23,12 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserPassController {
     @Autowired
     UserPassService userService;
-  /*          
-    @GetMapping("/get")
-    public ArrayList<UserPassModel> getUsers(){
-        return userService.getUsers();
-    }
-    */
+
     @GetMapping("/get/{id}")
     public Optional<UserPassModel> getOne(@PathVariable Long id){
         return this.userService.getOne(id);

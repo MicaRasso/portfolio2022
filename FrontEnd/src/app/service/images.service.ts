@@ -1,37 +1,32 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { images } from '../model/images.model';
-
+import { Storage,ref, uploadBytes, list, getDownloadURL} from '@angular/fire/storage'
+ 
 @Injectable({
   providedIn: 'root'
 })
 export class ImagesService {
-  URL='http://localhost:8090/img/';
 
-  constructor(private http:HttpClient) { }
+  URL:string='';
 
-  public list():Observable<images[]>{
-    return this.http.get<images[]>(this.URL+'list')
+  constructor(private storage:Storage) { }
+
+  uploadImg($event:any,name:string){
+    const file=$event.target.files[0];
+    const img_ref=ref(this.storage,'img/'+name);
+    uploadBytes(img_ref,file)
+    .then(resp=>{
+      this.getImg();
+    })
+    .catch(err=>console.log('No se pudo cargar la imagen '+err))
   }
 
-  //para obtener datos de una exp particular
-  public detail(id:number):Observable<images[]>{
-    return this.http.get<images[]>(this.URL + `get/${id}`);
-  }
-
-  //guardar
-  public save(exp:images):Observable<any>{
-    return this.http.post<any>(this.URL + `create`,exp);
-  }
-
-  //actualizar
-  public update(id:number,exp:images):Observable<any>{
-    return this.http.put<any>(this.URL + `update/${id}` ,exp)
-  }
-  
-  //borrar
-  public delete(id:number):Observable<any>{
-    return this.http.delete<any>(this.URL + `delete/${id}`)
-  }
+  getImg(){
+    const img_ref=ref(this.storage,'img');
+    list(img_ref)
+    .then(async resp=>{
+      for(let item of resp.items)
+        this.URL=await getDownloadURL(item)
+    })
+    .catch(err=>console.log(err))
+}
 }
